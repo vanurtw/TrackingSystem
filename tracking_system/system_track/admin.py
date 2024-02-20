@@ -5,7 +5,7 @@ from .models import Building, Technique
 # Register your models here.
 @admin.register(Building)
 class BuildingAdmin(admin.ModelAdmin):
-    pass
+    prepopulated_fields = {'slug': ('name',)}
 
 
 @admin.register(Technique)

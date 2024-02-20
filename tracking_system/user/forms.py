@@ -22,3 +22,14 @@ class SignUpUserForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ['username', 'first_name', 'last_name', 'building', 'email', 'password']
+
+
+class LoginUserForm(forms.ModelForm):
+    username = forms.CharField(max_length=100,
+                               widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
+    password = forms.CharField(max_length=100,
+                               widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Passowrd'}))
+
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'password']
