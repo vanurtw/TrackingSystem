@@ -9,11 +9,12 @@ from .models import Tehnique
 class TehniqueViewList(ListView):
     template_name = 'tehnique/tehnique_list.html'
     model = Tehnique
+    extra_context = {'header': 'technique'}
 
 
 def tehnique_detail(request):
-    return render(request, 'tehnique/tehnique_detail.html')
+    return render(request, 'tehnique/tehnique_detail.html', {'header': 'technique'})
 
 
 def tehnique_transport(request):
-    return render(request, 'tehnique/transport-tehnique.html')
+    return render(request, 'tehnique/transport-tehnique.html', {'header': 'transfer'})

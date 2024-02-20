@@ -9,14 +9,36 @@
         </div>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            {% if header == 'home' %}
             <li><a href="{% url 'home' %}" class="nav-link px-2 link-secondary">Home</a></li>
+            {% else %}
+            <li><a href="{% url 'home' %}" class="nav-link px-2">Home</a></li>
+            {% endif %}
             {% if user.is_authenticated %}
+            {% if header == 'technique' %}
+            <li><a href="{% url 'tehnique' %}" class="nav-link px-2 link-secondary">Technique</a></li>
+            {% else %}
             <li><a href="{% url 'tehnique' %}" class="nav-link px-2">Technique</a></li>
+            {% endif %}
+            {% if header == 'transfer' %}
+            <li><a href="{% url 'tehnique_transport' %}" class="nav-link px-2 link-secondary">
+                Transfer the equipment</a></li>
+            {% else %}
             <li><a href="{% url 'tehnique_transport' %}" class="nav-link px-2">
                 Transfer the equipment</a></li>
             {% endif %}
+            {% endif %}
+            {% if header == 'faqs' %}
+            <li><a href="#" class="nav-link px-2 link-secondary">FAQs</a></li>
+            {% else %}
             <li><a href="#" class="nav-link px-2">FAQs</a></li>
+            {% endif %}
+            {% if header == 'about' %}
+            <li><a href="#" class="nav-link px-2 link-secondary">About</a></li>
+            {% else %}
             <li><a href="#" class="nav-link px-2">About</a></li>
+            {% endif %}
+
         </ul>
         {% if user.is_authenticated %}
         <div class="col-md-3 text-end">
