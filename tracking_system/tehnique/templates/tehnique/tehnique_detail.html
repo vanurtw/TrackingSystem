@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-lg-8 mx-auto p-4 py-md-5">
+    <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+        <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Инвентарный номер</font></font></span>
+        </a>
+    </header>
+
+    <main>
+        <h1 class="text-body-emphasis"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Название
+            Техники</font></font></h1>
+        <p class="fs-5 col-md-8"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Быстро и
+            легко начните работу с скомпилированными и готовыми к использованию файлами Bootstrap с помощью этого
+            простого примера, содержащего базовый HTML и полезные ссылки. Загрузите все наши примеры, чтобы
+            начать.</font></font></p>
+
+
+        <hr class="col-3 col-md-2 mb-5">
+
+        <div class="row g-5">
+            <div class="col-md-6">
+                <h2 class="text-body-emphasis"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">Изменить состояние техники</font></font></h2>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Готовы выйти за рамки
+                    стартового шаблона? Ознакомьтесь с этими проектами с открытым исходным кодом, которые вы можете
+                    быстро скопировать в новый репозиторий GitHub.</font></font></p>
+                <ul class="list-unstyled ps-0">
+                    <li>
+                        <a class="icon-link mb-1" href="https://github.com/twbs/examples/tree/main/icons-font"
+                           rel="noopener" target="_blank">
+                            <svg class="bi" width="16" height="16">
+                                <use xlink:href="#arrow-right-circle"></use>
+                            </svg>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                Стартер Bootstrap npm
+                            </font></font></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-6">
+                <h2 class="text-body-emphasis"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">История перемещения</font></font></h2>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Прочтите более
+                    подробные инструкции и документацию по использованию Bootstrap или участию в нем.</font></font></p>
+                <ul class="list-unstyled ps-0">
+                    <li>
+                        <a class="icon-link mb-1" href="/docs/5.3/getting-started/introduction/">
+                            <svg class="bi" width="16" height="16">
+                                <use xlink:href="#arrow-right-circle"></use>
+                            </svg>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                Краткое руководство по Bootstrap
+                            </font></font></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

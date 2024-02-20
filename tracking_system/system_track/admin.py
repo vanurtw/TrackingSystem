@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Building, Technique
+from .models import Building
 
 
 # Register your models here.
@@ -8,6 +8,3 @@ class BuildingAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
-@admin.register(Technique)
-class TechniqueAdmin(admin.ModelAdmin):
-    pass

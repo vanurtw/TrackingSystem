@@ -11,8 +11,8 @@
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="{% url 'home' %}" class="nav-link px-2 link-secondary">Home</a></li>
             {% if user.is_authenticated %}
-            <li><a href="#" class="nav-link px-2">Technique</a></li>
-            <li><a href="#" class="nav-link px-2">
+            <li><a href="{% url 'tehnique' %}" class="nav-link px-2">Technique</a></li>
+            <li><a href="{% url 'tehnique_transport' %}" class="nav-link px-2">
                 Transfer the equipment</a></li>
             {% endif %}
             <li><a href="#" class="nav-link px-2">FAQs</a></li>

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'system_track.apps.SystemTrackConfig',
     'user.apps.UserConfig',
+    'tehnique.apps.TehniqueConfig',
     'debug_toolbar',
 ]
 
