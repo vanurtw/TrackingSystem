@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, View
 from .models import Tehnique
+from .forms import TransportTechniqueForm
 
 
 # Create your views here.
@@ -23,4 +24,6 @@ def tehnique_detail(request):
 
 
 def tehnique_transport(request):
-    return render(request, 'tehnique/transport-tehnique.html', {'header': 'transfer'})
+    form = TransportTechniqueForm(request)
+    # form.set_tec(request)
+    return render(request, 'tehnique/transport-tehnique.html', {'header': 'transfer', 'form': form})
