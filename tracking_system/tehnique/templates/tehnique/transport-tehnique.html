@@ -2,33 +2,22 @@
 {% block title %}{% endblock %}
 {% block content %}
 <div style="margin: 50px 40% 50px 40%;">
-    {{form}}
+
     <form>
         <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-        <h1 class="h3 mb-3 fw-normal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Пожалуйста
-            войдите</font></font></h1>
-
+        <h1 class="h3 mb-3 fw-normal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            Select equipment and building where to transfer</font></font></h1>
+        {% for i in form %}
         <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="имя@example.com">
-            <label for="floatingInput"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Адрес
-                электронной почты</font></font></label>
+            {{i}}
+            <label>{{i.label}}</label>
         </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Пароль">
-            <label for="floatingPassword"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Пароль</font></font></label>
-        </div>
+        {% endfor %}
 
-        <div class="form-check text-start my-3">
-            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault"><font style="vertical-align: inherit;"><font
-                    style="vertical-align: inherit;">
-                Запомнить меня
-            </font></font></label>
-        </div>
+
         <button class="btn btn-primary w-100 py-2" type="submit"><font style="vertical-align: inherit;"><font
                 style="vertical-align: inherit;">Войти</font></font></button>
-        <p class="mt-5 mb-3 text-body-secondary"><font style="vertical-align: inherit;"><font
-                style="vertical-align: inherit;">© 2017–2023</font></font></p>
+
     </form>
 </div>
 {% endblock %}
