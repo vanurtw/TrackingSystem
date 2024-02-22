@@ -26,4 +26,4 @@ def tehnique_detail(request):
 def tehnique_transport(request):
     form = TransportTechniqueForm(request)
     # form.set_tec(request)
-    return render(request, 'tehnique/transport-tehnique.html', {'header': 'transfer', 'form': form})
+    return render(request, 'tehnique/hand_over.html', {'header': 'hand_over', 'form': form})

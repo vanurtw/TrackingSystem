@@ -11,10 +11,10 @@ class TransportTechniqueForm(forms.Form):
                                                                queryset=Tehnique.objects.filter(building=user.building,
                                                                                                 status='A'))
         self.base_fields['technique'].widget.attrs = {'class': 'form-control'}
-        self.base_fields['buildinqs'] = forms.ModelChoiceField(label='Здание куда передать',
+        self.base_fields['buildinq'] = forms.ModelChoiceField(label='Здание куда передать',
                                                                queryset=Building.objects.exclude(name=user.building))
-        self.base_fields['buildinqs'].widget.attrs = {'class': 'form-control'}
+        self.base_fields['buildinq'].widget.attrs = {'class': 'form-control'}
         super(TransportTechniqueForm, self).__init__()
 
     class Meta:
-        fields = ['technique']
+        fields = ['technique', 'buildinqs']

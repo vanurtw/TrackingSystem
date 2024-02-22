@@ -3,7 +3,8 @@
 {% block content %}
 <div style="margin: 50px 40% 50px 40%;">
 
-    <form>
+    <form action="{% url 'hand-over-technique' %}" method="post">
+        {% csrf_token %}
         <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
             Select equipment and building where to transfer</font></font></h1>
@@ -16,7 +17,7 @@
 
 
         <button class="btn btn-primary w-100 py-2" type="submit"><font style="vertical-align: inherit;"><font
-                style="vertical-align: inherit;">Войти</font></font></button>
+                style="vertical-align: inherit;">Передать</font></font></button>
 
     </form>
 </div>

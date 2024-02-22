@@ -20,12 +20,15 @@
             {% else %}
             <li><a href="{% url 'tehnique' %}" class="nav-link px-2">Technique</a></li>
             {% endif %}
-            {% if header == 'transfer' %}
-            <li><a href="{% url 'tehnique_transport' %}" class="nav-link px-2 link-secondary">
-                Transfer the equipment</a></li>
+            {% if header == 'hand_over' %}
+            <li><a href="{% url 'tehnique_transport' %}" class="nav-link px-2 link-secondary">Hand over</a></li>
             {% else %}
-            <li><a href="{% url 'tehnique_transport' %}" class="nav-link px-2">
-                Transfer the equipment</a></li>
+            <li><a href="{% url 'tehnique_transport' %}" class="nav-link px-2">Hand over</a></li>
+            {% endif %}
+            {% if header == 'track' %}
+            <li><a href="{% url 'track' %}" class="nav-link px-2 link-secondary">Track</a></li>
+            {% else %}
+            <li><a href="{% url 'track' %}" class="nav-link px-2">Track</a></li>
             {% endif %}
             {% endif %}
             {% if header == 'faqs' %}
