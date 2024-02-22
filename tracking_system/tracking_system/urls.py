@@ -16,6 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from mimesis import Transport, Payment
+
+pa = Payment()
+pa.credit_card_number()
+tr = Transport()
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
