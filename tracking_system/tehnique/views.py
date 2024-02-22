@@ -8,7 +8,13 @@ from .models import Tehnique
 
 class TehniqueViewList(ListView):
     template_name = 'tehnique/tehnique_list.html'
-    model = Tehnique
+    context_object_name = 'techniques'
+
+    def get_queryset(self):
+        user = self.request.user
+        queryset = Tehnique.objects.filter(building=user.building)
+        return queryset
+
     extra_context = {'header': 'technique'}
 
 
