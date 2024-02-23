@@ -5,22 +5,15 @@
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
         <div style="display:flex;">
-
-
-
-
-        <form style="width: 270px; margin-bottom:80px;margin-left: 100px;">
-            <div class="form-floating">
-                <input type="email" class="form-control" id="" placeholder="имя@example.com">
-                <label for=""><font style="vertical-align: inherit;"><font
-                        style="vertical-align: inherit;">Введите инвентарный номер</font></font></label>
-            </div>
-            <button class="btn btn-primary w-100 py-2" type="submit"><font style="vertical-align: inherit;"><font
-                    style="vertical-align: inherit;">Поиск</font></font></button>
-        </form>
-
-            </div>
-
+            <form style="width: 270px; margin-bottom:80px">
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="" placeholder="имя@example.com">
+                    <label for="">Введите инвентарный номер</label>
+                </div>
+                <button class="btn btn-primary w-100 py-2" type="submit">Поиск</button>
+            </form>
+        </div>
+        <h3 style="padding-bottom: 20px;color: #2d3032;">Техника, которая прибыла в ваше здание и ожидает приемa.</h3>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for i in technique_accept %}
             <div class="col">
@@ -37,8 +30,8 @@
                         <p class="card-text">ID: {{i.inventory_number}}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a href="{% url 'tehnique_detail' %}" class="btn btn-sm btn-outline-secondary">View</a>
-
+                                <a href="{% url 'tehnique_detail' %}"
+                                   class="btn btn-sm btn-outline-secondary">Смотреть</a>
                             </div>
                             <small class="text-body-secondary">{{i.date_update}}</small>
                         </div>
