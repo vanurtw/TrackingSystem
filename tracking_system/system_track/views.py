@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import TemplateView
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views.generic import ListView, TemplateView
 from tehnique.models import Tehnique
 from django.http import HttpResponse
 from mimesis import Payment
@@ -12,8 +12,15 @@ class HomeView(TemplateView):
     template_name = 'system_track/index.html'
 
 
-def track_technique(request):
-    return render(request, 'system_track/transferred-equipment.html', {'header': 'track'})
+class TrackView(ListView):
+    context_object_name = 'techniques_transport'
+    template_name = 'system_track/track.html'
+    extra_context = {'header': 'track'}
+
+    def get_queryset(self):
+        request = self.request
+        building_user = request.user.building
+        return Tehnique.objects.exclude(building=building_user).filter(parent_building=building_user, status='B').order_by('-date_update')
 
 
 def hand_over_technique(request):
@@ -31,4 +38,4 @@ def hand_over_technique(request):
         except:
             continue
     tehnique.save()
-    return HttpResponse('aa')
+    return redirect('track')
