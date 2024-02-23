@@ -20,7 +20,18 @@ class TrackView(ListView):
     def get_queryset(self):
         request = self.request
         building_user = request.user.building
-        return Tehnique.objects.exclude(building=building_user).filter(parent_building=building_user, status='B').order_by('-date_update')
+        return Tehnique.objects.exclude(building=building_user).filter(parent_building=building_user,
+                                                                       status='B').order_by('-date_update')
+
+
+class AcceptView(ListView):
+    template_name = 'system_track/accept.html'
+    context_object_name = 'technique_accept'
+    extra_context = {'header': 'accept'}
+
+    def get_queryset(self):
+        building_user = self.request.user.building
+        return Tehnique.objects.filter(building=building_user, status='B')
 
 
 def hand_over_technique(request):

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}Tehnique{% endblock %}
+{% block content %}
+
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <div style="display:flex;">
+
+
+
+
+        <form style="width: 270px; margin-bottom:80px;margin-left: 100px;">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="" placeholder="имя@example.com">
+                <label for=""><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">Введите инвентарный номер</font></font></label>
+            </div>
+            <button class="btn btn-primary w-100 py-2" type="submit"><font style="vertical-align: inherit;"><font
+                    style="vertical-align: inherit;">Поиск</font></font></button>
+        </form>
+
+            </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for i in technique_accept %}
+            <div class="col">
+                <div class="card shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                         xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                         preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#55595c"></rect>
+                        <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                    </svg>
+                    <div class="card-body">
+                        <p class="card-text">{{i.name}}</p>
+                        <p class="card-text">{{i.get_status_display}}</p>
+                        <p class="card-text">ID: {{i.inventory_number}}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="{% url 'tehnique_detail' %}" class="btn btn-sm btn-outline-secondary">View</a>
+
+                            </div>
+                            <small class="text-body-secondary">{{i.date_update}}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -30,6 +30,11 @@
             {% else %}
             <li><a href="{% url 'track' %}" class="nav-link px-2">Track</a></li>
             {% endif %}
+            {% if header == 'accept' %}
+            <li><a href="{% url 'accept_technique' %}" class="nav-link px-2 link-secondary">Accept</a></li>
+            {% else %}
+            <li><a href="{% url 'accept_technique' %}" class="nav-link px-2">Accept</a></li>
+            {% endif %}
             {% endif %}
             {% if header == 'faqs' %}
             <li><a href="#" class="nav-link px-2 link-secondary">FAQs</a></li>
