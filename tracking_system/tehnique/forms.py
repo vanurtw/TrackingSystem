@@ -19,11 +19,15 @@ class TransportTechniqueForm(forms.Form):
         fields = ['technique', 'buildinqs']
 
 
-class StatusUpdateForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        self.base_fields['status'].widget.attrs = {'class':'form-control'}
-        self.base_fields['status'].initial = 'B'
-        super(StatusUpdateForm, self).__init__(*args, **kwargs)
+class StatusUpdateForm(forms.Form):
+    CHOICES = [
+        ("B", "Техника передана из здания в здание, и ожидает фактического приема"),
+        ("C", "Техника принята в здании")
+    ]
+    status = forms.ChoiceField(label='Статус', choices=CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
+    # def __init__(self, *args, **kwargs):
+    #     self.base_fields['status'].widget.attrs = {'class':'form-control'}
+    #     self.base_fields['status'].initial = 'B'
+    #     super(StatusUpdateForm, self).__init__(*args, **kwargs)
     class Meta:
-        model = Tehnique
         fields = ['status']

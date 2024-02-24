@@ -22,11 +22,11 @@ class TrackView(ListView):
         request = self.request
         building_user = request.user.building
         queryset = Tehnique.objects.exclude(building=building_user).filter(parent_building=building_user,
-                                                                           status='B').order_by('-date_update')
+                                                                           status='B')
         search = request.GET.get('search', None)
         if search:
             queryset = queryset.filter(Q(name__icontains=search)|Q(inventory_number__icontains=search))
-        return queryset
+        return queryset.order_by('-date_update')
 
 
 class AcceptView(ListView):
@@ -40,7 +40,7 @@ class AcceptView(ListView):
         search = self.request.GET.get('search')
         if search:
             queryset = queryset.filter(Q(name__icontains=search) | Q(inventory_number__icontains=search))
-        return queryset
+        return queryset.order_by('-date_update')
 
 
 def hand_over_technique(request):

@@ -22,7 +22,7 @@ class TehniqueViewList(ListView):
                                                Q(name__icontains=search) | Q(inventory_number__icontains=search))
         else:
             queryset = Tehnique.objects.filter(building=user.building, status='A')
-        return queryset
+        return queryset.order_by('-date_update')
 
     extra_context = {'header': 'technique'}
 
