@@ -18,22 +18,21 @@
         <div class="row g-5">
             {% if update %}
             <div class="col-md-6">
-                <h2 class="text-body-emphasis">Изменить состояние техники</h2>
-                <p>Готовы выйти за рамки
-                    стартового шаблона? Ознакомьтесь с этими проектами с открытым исходным кодом, которые вы можете
-                    быстро скопировать в новый репозиторий GitHub.</p>
-                <ul class="list-unstyled ps-0">
-                    <li>
-                        <a class="icon-link mb-1" href="https://github.com/twbs/examples/tree/main/icons-font"
-                           rel="noopener" target="_blank">
-                            <svg class="bi" width="16" height="16">
-                                <use xlink:href="#arrow-right-circle"></use>
-                            </svg>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                                Стартер Bootstrap npm
-                            </font></font></a>
-                    </li>
-                </ul>
+                <h2 class="text-body-emphasis">Изменить статус</h2>
+                <p>Здесь вы можете принять технику и именить её статус. После принятия техники, изменить статус обратно
+                    через это окно будет нельзя, только через админ
+                    панель.</p>
+
+                <form style="width: 270px; margin-bottom:80px" action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-floating">
+                        {% for i in form %}
+                        {{i}}
+                        <label>{{i.label}}</label>
+                        {% endfor %}
+                    </div>
+                    <button class="btn btn-primary w-100 py-2" type="submit">Установить</button>
+                </form>
             </div>
             {% endif %}
             <div class="col-md-6">
@@ -45,8 +44,8 @@
                             <svg class="bi" width="16" height="16">
                                 <use xlink:href="#arrow-right-circle"></use>
                             </svg>
-                                Краткое руководство по Bootstrap
-                            </a>
+                            Краткое руководство по Bootstrap
+                        </a>
                     </li>
 
                 </ul>

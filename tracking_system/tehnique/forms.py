@@ -17,3 +17,13 @@ class TransportTechniqueForm(forms.Form):
 
     class Meta:
         fields = ['technique', 'buildinqs']
+
+
+class StatusUpdateForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.base_fields['status'].widget.attrs = {'class':'form-control'}
+        self.base_fields['status'].initial = 'B'
+        super(StatusUpdateForm, self).__init__(*args, **kwargs)
+    class Meta:
+        model = Tehnique
+        fields = ['status']
