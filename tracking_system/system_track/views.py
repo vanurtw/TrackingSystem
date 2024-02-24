@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, TemplateView
 from tehnique.models import Tehnique
+from django.db.models import Q
 from django.http import HttpResponse
 from mimesis import Payment
 
@@ -20,8 +21,12 @@ class TrackView(ListView):
     def get_queryset(self):
         request = self.request
         building_user = request.user.building
-        return Tehnique.objects.exclude(building=building_user).filter(parent_building=building_user,
-                                                                       status='B').order_by('-date_update')
+        queryset = Tehnique.objects.exclude(building=building_user).filter(parent_building=building_user,
+                                                                           status='B').order_by('-date_update')
+        search = request.GET.get('search', None)
+        if search:
+            queryset = queryset.filter(Q(name__icontains=search)|Q(inventory_number__icontains=search))
+        return queryset
 
 
 class AcceptView(ListView):
@@ -31,7 +36,11 @@ class AcceptView(ListView):
 
     def get_queryset(self):
         building_user = self.request.user.building
-        return Tehnique.objects.filter(building=building_user, status='B')
+        queryset = Tehnique.objects.filter(building=building_user, status='B')
+        search = self.request.GET.get('search')
+        if search:
+            queryset = queryset.filter(Q(name__icontains=search) | Q(inventory_number__icontains=search))
+        return queryset
 
 
 def hand_over_technique(request):

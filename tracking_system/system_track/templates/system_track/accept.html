@@ -5,10 +5,10 @@
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
         <div style="display:flex;">
-            <form style="width: 270px; margin-bottom:80px">
+            <form style="width: 270px; margin-bottom:80px" action="" method="get">
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="" placeholder="имя@example.com">
-                    <label for="">Введите инвентарный номер</label>
+                    <input type="text" class="form-control" id="" placeholder="имя@example.com" name="search">
+                    <label for="">Название или ID техники</label>
                 </div>
                 <button class="btn btn-primary w-100 py-2" type="submit">Поиск</button>
             </form>
@@ -30,7 +30,7 @@
                         <p class="card-text">ID: {{i.inventory_number}}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a href="{% url 'tehnique_detail' %}"
+                                <a href="{% url 'tehnique_detail' i.pk %}?update=true"
                                    class="btn btn-sm btn-outline-secondary">Смотреть</a>
                             </div>
                             <small class="text-body-secondary">{{i.date_update}}</small>

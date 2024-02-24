@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, View
+from django.views.generic import ListView, View, DetailView
 from .models import Tehnique
 from .forms import TransportTechniqueForm
 from django.db.models import Q
@@ -25,8 +25,20 @@ class TehniqueViewList(ListView):
     extra_context = {'header': 'technique'}
 
 
-def tehnique_detail(request):
-    return render(request, 'tehnique/tehnique_detail.html', {'header': 'technique'})
+class TechniqueDetailView(DetailView):
+    template_name = 'tehnique/tehnique_detail.html'
+    slug_url_kwarg = 'pk'
+    context_object_name = 'technique'
+    model = Tehnique
+    extra_context = {'header': 'technique'}
+
+    def get_context_data(self, **kwargs):
+        context = super(TechniqueDetailView, self).get_context_data(**kwargs)
+        update = self.request.GET.get('update')
+        if update:
+            context['update'] = True
+        return context
+
 
 
 def tehnique_transport(request):

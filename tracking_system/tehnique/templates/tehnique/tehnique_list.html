@@ -27,11 +27,11 @@
                     </svg>
                     <div class="card-body">
                         <p class="card-text">{{i.name}}</p>
-                        <p class="card-text">{{i.get_status_display}}</p>
+                        <p class="card-text" style="color:#2fa700">{{i.get_status_display}}</p>
                         <p class="card-text">ID: {{i.inventory_number}}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a href="{% url 'tehnique_detail' %}" class="btn btn-sm btn-outline-secondary">Смотреть</a>
+                                <a href="{% url 'tehnique_detail' i.id %}" class="btn btn-sm btn-outline-secondary">Смотреть</a>
                             </div>
                             <small class="text-body-secondary">{{i.date_update}}</small>
                         </div>

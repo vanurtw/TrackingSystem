@@ -8,27 +8,20 @@
             <svg class="bi me-2" width="40" height="32">
                 <use xlink:href="#bootstrap"></use>
             </svg>
-            <span class="fs-4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Инвентарный номер</font></font></span>
+            <span class="fs-4"><font style="vertical-align: inherit;">ID: {{technique.inventory_number}}</span>
         </a>
     </header>
     <main>
-        <h1 class="text-body-emphasis"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Название
-            Техники</font></font></h1>
-        <p class="fs-5 col-md-8"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Быстро и
-            легко начните работу с скомпилированными и готовыми к использованию файлами Bootstrap с помощью этого
-            простого примера, содержащего базовый HTML и полезные ссылки. Загрузите все наши примеры, чтобы
-            начать.</font></font></p>
-
-
+        <h1 class="text-body-emphasis"> {{technique.name}}</h1>
+        <p class="fs-5 col-md-8">Статус: {{technique.get_status_display}}</p>
         <hr class="col-3 col-md-2 mb-5">
-
         <div class="row g-5">
+            {% if update %}
             <div class="col-md-6">
-                <h2 class="text-body-emphasis"><font style="vertical-align: inherit;"><font
-                        style="vertical-align: inherit;">Изменить состояние техники</font></font></h2>
-                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Готовы выйти за рамки
+                <h2 class="text-body-emphasis">Изменить состояние техники</h2>
+                <p>Готовы выйти за рамки
                     стартового шаблона? Ознакомьтесь с этими проектами с открытым исходным кодом, которые вы можете
-                    быстро скопировать в новый репозиторий GitHub.</font></font></p>
+                    быстро скопировать в новый репозиторий GitHub.</p>
                 <ul class="list-unstyled ps-0">
                     <li>
                         <a class="icon-link mb-1" href="https://github.com/twbs/examples/tree/main/icons-font"
@@ -42,21 +35,18 @@
                     </li>
                 </ul>
             </div>
-
+            {% endif %}
             <div class="col-md-6">
-                <h2 class="text-body-emphasis"><font style="vertical-align: inherit;"><font
-                        style="vertical-align: inherit;">История перемещения</font></font></h2>
-                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Прочтите более
-                    подробные инструкции и документацию по использованию Bootstrap или участию в нем.</font></font></p>
+                <h2 class="text-body-emphasis">История перемещения</h2>
+                <p>Здесь отображается вся история перемещения техники, когда либо совершенная. </p>
                 <ul class="list-unstyled ps-0">
                     <li>
                         <a class="icon-link mb-1" href="/docs/5.3/getting-started/introduction/">
                             <svg class="bi" width="16" height="16">
                                 <use xlink:href="#arrow-right-circle"></use>
                             </svg>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                                 Краткое руководство по Bootstrap
-                            </font></font></a>
+                            </a>
                     </li>
 
                 </ul>
