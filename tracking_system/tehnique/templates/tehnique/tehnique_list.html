@@ -5,20 +5,14 @@
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
         <div style="display:flex;">
-            <form style="width: 270px; margin-bottom:80px">
+            <form style="width: 270px; margin-bottom:80px" action="" method="get">
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="имя@example.com">
-                    <label for="floatingInput">Адрес электронной почты</label>
-                </div>
-                <button class="btn btn-primary w-100 py-2" type="submit">Выбрать</button>
-            </form>
-            <form style="width: 270px; margin-bottom:80px;margin-left: 100px;">
-                <div class="form-floating">
-                    <input type="email" class="form-control" id="" placeholder="имя@example.com">
-                    <label for="floatingInput">Введите инвентарный номер</label>
+                    <input type="text" class="form-control" id="floatingInput" placeholder="имя@example.com" name="search">
+                    <label for="floatingInput">Название или ID техники</label>
                 </div>
                 <button class="btn btn-primary w-100 py-2" type="submit">Поиск</button>
             </form>
+
         </div>
         <h3 style="padding-bottom: 20px;color: #2d3032;">Техника, которая находится в ваше здании.</h3>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">

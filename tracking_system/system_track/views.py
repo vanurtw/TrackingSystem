@@ -35,18 +35,11 @@ class AcceptView(ListView):
 
 
 def hand_over_technique(request):
-    paytment = Payment()
     technique_id = request.POST.get('technique')
     building_id = request.POST.get('buildinq')
     tehnique = get_object_or_404(Tehnique, id=technique_id)
     tehnique.building_id = building_id
     tehnique.parent_building = request.user.building
     tehnique.status = 'B'
-    while True:
-        try:
-            tehnique.inventory_number = paytment.credit_card_number()
-            break
-        except:
-            continue
     tehnique.save()
     return redirect('track')

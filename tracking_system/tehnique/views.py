@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, View
 from .models import Tehnique
 from .forms import TransportTechniqueForm
+from django.db.models import Q
 
 
 # Create your views here.
@@ -13,7 +14,12 @@ class TehniqueViewList(ListView):
 
     def get_queryset(self):
         user = self.request.user
-        queryset = Tehnique.objects.filter(building=user.building)
+        search = self.request.GET.get('search', None)
+        if search:
+            queryset = Tehnique.objects.filter(Q(building=user.building),
+                                               Q(name__icontains=search) | Q(inventory_number__icontains=search))
+        else:
+            queryset = Tehnique.objects.filter(building=user.building, status='A')
         return queryset
 
     extra_context = {'header': 'technique'}
