@@ -39,6 +39,9 @@
                 <h2 class="text-body-emphasis">История перемещения</h2>
                 <p>Здесь отображается вся история перемещения техники, когда либо совершенная. </p>
                 <ul class="list-unstyled ps-0">
+                    {% for i in technique.history.all %}
+                    {{i}}
+                    {% endfor %}
                     <li>
                         <a class="icon-link mb-1" href="/docs/5.3/getting-started/introduction/">
                             <svg class="bi" width="16" height="16">

@@ -1,5 +1,6 @@
 from django.db import models
 from system_track.models import Building
+from simple_history.models import HistoricalRecords
 
 
 # Create your models here.
@@ -19,6 +20,7 @@ class Tehnique(models.Model):
     status = models.CharField(max_length=10, choices=CHOICES, default='A', verbose_name='Статус')
     date_crete = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     date_update = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
+    history = HistoricalRecords()
 
     class Meta:
         verbose_name = 'Техника'

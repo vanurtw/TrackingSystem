@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'system_track.apps.SystemTrackConfig',
     'user.apps.UserConfig',
     'tehnique.apps.TehniqueConfig',
+    'simple_history',
     'debug_toolbar',
 ]
 
 MIDDLEWARE = [
+'simple_history.middleware.HistoryRequestMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -61,7 +63,7 @@ ROOT_URLCONF = 'tracking_system.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
