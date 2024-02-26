@@ -38,12 +38,12 @@ INSTALLED_APPS = [
     'system_track.apps.SystemTrackConfig',
     'user.apps.UserConfig',
     'tehnique.apps.TehniqueConfig',
-    'simple_history',
+
     'debug_toolbar',
 ]
 
 MIDDLEWARE = [
-'simple_history.middleware.HistoryRequestMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
