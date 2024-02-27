@@ -1,11 +1,14 @@
 from django.db import models
 from system_track.models import Building
+from django.db.models.signals import post_delete, post_save
+from system_track.mixins import ChangeloggableMixin
+from system_track.signals import journal_save_handler, journal_delete_handler
 
 
 # Create your models here.
 
 
-class Tehnique(models.Model):
+class Tehnique(ChangeloggableMixin, models.Model):
     CHOICES = [
         ('A', 'Техника находится в здании'),
         ('B', 'Техника передана из здания в здание, и ожидает фактического приема'),
@@ -27,3 +30,7 @@ class Tehnique(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+
+post_save.connect(journal_save_handler, sender=Tehnique)
+post_delete.connect(journal_delete_handler, sender=Tehnique)

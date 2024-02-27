@@ -37,7 +37,7 @@ class ChangeLog(models.Model):
     ipaddress = models.CharField(max_length=15, verbose_name='IP address', null=True)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
     class Meta:
         ordering = ['changed']
