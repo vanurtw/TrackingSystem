@@ -32,8 +32,8 @@ class ChangeLog(models.Model):
     model = models.CharField(max_length=255, verbose_name='tablica', null=True)
     record_id = models.IntegerField(verbose_name='ID zapisi', null=True)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, verbose_name='user')
-    action_on_model = models.CharField(choices=TYPE_ACTION, null=True, verbose_name='action')
-    data = models.JSONField(default={}, verbose_name='Изменяемые данные', null=True)
+    action_on_model = models.CharField(choices=TYPE_ACTION, null=True, verbose_name='action', max_length=50)
+    data = models.JSONField(default=dict, verbose_name='Изменяемые данные', null=True)
     ipaddress = models.CharField(max_length=15, verbose_name='IP address', null=True)
 
     def __str__(self):
