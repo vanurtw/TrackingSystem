@@ -34,6 +34,7 @@ class ChangeLog(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, verbose_name='user')
     action_on_model = models.CharField(choices=TYPE_ACTION, null=True, verbose_name='action')
     data = models.JSONField(default={}, verbose_name='Изменяемые данные', null=True)
+    ipaddress = models.CharField(max_length=15, verbose_name='IP address', null=True)
 
     def __str__(self):
         return self.id
@@ -41,6 +42,15 @@ class ChangeLog(models.Model):
     class Meta:
         ordering = ['changed']
 
-
     @classmethod
-    def add(cls):
+    def add(cls, instance, user, ipaddress, action_on_model, data, id=None):
+        log = ChangeLog.objects.get(id=id) if id else ChangeLog()
+        log.model = instance.__class__.__name__
+        log.record_id = instance.pk
+        if user:
+            log.user = user
+        log.ipaddress = ipaddress
+        log.action_on_model = action_on_model
+        log.data = data
+        log.save()
+        return log.pk
