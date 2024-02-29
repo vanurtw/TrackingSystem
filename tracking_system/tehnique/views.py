@@ -4,6 +4,7 @@ from .models import Tehnique
 from .forms import TransportTechniqueForm, StatusUpdateForm
 from django.db.models import Q
 from mimesis import Payment
+from system_track.models import ChangeLog
 from django.http import HttpResponse
 
 
@@ -27,6 +28,8 @@ class TehniqueViewList(ListView):
     extra_context = {'header': 'technique'}
 
 
+
+
 class TechniqueDetailView(DetailView):
     template_name = 'tehnique/tehnique_detail.html'
     slug_url_kwarg = 'pk'
@@ -41,12 +44,15 @@ class TechniqueDetailView(DetailView):
             form = StatusUpdateForm()
             context['form'] = form
             context['update'] = True
+        pk = self.kwargs.get('pk')
+        technique_history = ChangeLog.objects.filter(record_id=pk)
+        context['technique_history'] = technique_history
         return context
 
     def post(self, request, pk):
         payment = Payment()
         status = request.POST.get('status')
-        if status!='B':
+        if status != 'B':
             technique = Tehnique.objects.get(pk=pk)
             technique.status = 'A'
             while True:
@@ -58,7 +64,6 @@ class TechniqueDetailView(DetailView):
                     continue
 
         return redirect('accept_technique')
-
 
 
 def tehnique_transport(request):
