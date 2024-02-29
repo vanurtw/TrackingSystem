@@ -17,10 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from mimesis import Transport, Payment
-
-pa = Payment()
-pa.credit_card_number()
-tr = Transport()
+from presence import consumers
 
 
 urlpatterns = [
@@ -29,4 +26,5 @@ urlpatterns = [
     path('user/', include('user.urls')),
     path('tehnique/', include('tehnique.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
+    path('ws/presence', consumers.PresenceConsumer.as_asgi())
 ]
