@@ -40,11 +40,11 @@
                 <p>Здесь отображается вся история перемещения техники, когда либо совершенная. </p>
                 <ul class="list-unstyled ps-0">
                     {% for i in technique_history%}
-                    <li>Дата: {{i.changed}}<br>
+                    <li style="margin-bottom: 15px;background: #c7c7c7d1;padding: 10px;border-radius: 10px;">Дата: {{i.changed}}<br>
                         {{i.get_action_on_model_display}}<br>
                         {% for j in i.data.items %}
                         {% if j.0 != 'date_update' %}
-                            {{j.0}}:{{j.1}}<br>
+                        {{j.0}}:{{j.1}}<br>
                         {% endif %}
                         {% endfor %}
                     </li>
