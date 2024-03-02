@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 
     'daphne',
-    'presence',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,7 +79,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'tracking_system.wsgi.application'
-
+ASGI_APPLICATION = 'tracking_system.asgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -136,4 +135,3 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'tracking_system.authenticate.EmailAuthBackend',
 ]
-ASGI_APPLICATION = "django_websocket.asgi.application"
